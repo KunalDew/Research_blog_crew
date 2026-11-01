@@ -1,0 +1,26 @@
+{
+  "name": "Research Blog Crew",
+  "agents": ["researcher", "writer"],
+  "tasks": [
+    {
+      "name": "research_task",
+      "description": "Conduct thorough research on {topic}. Cover key concepts, recent developments, major challenges, notable real-world examples, relevant statistics, and the future outlook. Note the source of each important fact.",
+      "expected_output": "Structured research notes in markdown with sections for key concepts, recent developments, challenges, examples, statistics, and outlook, with sources listed where available.",
+      "agent": "researcher"
+    },
+    {
+      "name": "writing_task",
+      "description": "Using only the research notes provided, write a blog post about {topic} of roughly 800 to 1000 words. Include a catchy title, a strong introduction, clear subheadings, concrete examples, and a conclusion with a key takeaway.",
+      "expected_output": "A polished, publish-ready blog post in markdown format with a title, introduction, body sections with headings, and a conclusion.",
+      "agent": "writer",
+      "context": ["research_task"],
+      "output_file": "output/blog_post.md",
+      "markdown": true
+    }
+  ],
+  "process": "sequential",
+  "verbose": true,
+  "inputs": {
+    "topic": "Artificial Intelligence in Healthcare"
+  }
+}
